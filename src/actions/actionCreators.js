@@ -27,10 +27,11 @@ export function toggleAPIMode (isPreview) {
 }
 
 export function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}) {
+  var locale = 'en-US'
   return {
     type: 'FETCH_ENTRIES',
     payload: entriesService.loadEntries(entries, {entryId, contentTypeId, contentTypeChanged}).then((payload) => {
-      const path = `/entries/${entryId || ''}?content_type=${contentTypeId}&access_token=<ACCESSTOKEN>`
+      const path = `/entries/${entryId || ''}?locale=${locale}&content_type=${contentTypeId}&access_token=<ACCESSTOKEN>`
       const url = getRawRequestUrl(path)
       store.dispatch(appendRequest(url, path, payload))
       return payload

@@ -10,6 +10,7 @@ function loadEntries (entries, {entryId, contentTypeId, contentTypeChanged} = {}
       content_type: contentTypeId,
       skip: skip || 0,
       limit: 100,
+      locale: 'en-US',
       order: 'sys.createdAt'
     }),
     getContentTypes(),
