@@ -7,7 +7,9 @@
     "start": "NODE_ENV=development webpack-dev-server --host=0.0.0.0 --port=9020 --inline --hot",
     "clean": "rimraf dist && rimraf gh-pages",
     "build": "npm run clean && NODE_ENV=production BASE_PATH=discovery-app-react webpack -p",
-    "publish": "npm run build && ./bin/publish.sh"
+    "publish": "npm run build && ./bin/publish.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "contentful <opensource@contentful.com>",
   "license": "MIT",
@@ -47,7 +49,8 @@
     "redux-promise-middleware": "^3.3.0",
     "redux-thunk": "^2.1.0",
     "scourjs": "^1.0.1",
-    "unique-concat": "^0.2.2"
+    "unique-concat": "^0.2.2",
+    "snyk": "^1.189.0"
   },
   "standard": {
     "parser": "babel-eslint"
@@ -64,5 +67,6 @@
   "bugs": {
     "url": "https://github.com/contentful/discovery-app-react/issues"
   },
-  "homepage": "https://github.com/contentful/discovery-app-react#readme"
+  "homepage": "https://github.com/contentful/discovery-app-react#readme",
+  "snyk": true
 }
